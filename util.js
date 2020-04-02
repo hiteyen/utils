@@ -37,6 +37,7 @@
  * 二进制转 base64
  * 下载二进制文件
  * 根据url下载文件
+ * 去除制表符跟换行符，回车符
  */
 
 // 检查值
@@ -616,3 +617,11 @@ export downloadFileByBlob = (data, fileName) {
     link.click();
     link.remove();
 }
+/**
+ * \f  匹配换页字符。
+ * \n  匹配换行字符。
+ * \r  匹配回车符字符。
+ * \t  匹配制表字符。
+ * \v  匹配垂直制表符。
+ */
+export removeEmpty = (str) => str.replace(/[\t\n\v\r\f]/g, "");
